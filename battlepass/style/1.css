@@ -1,0 +1,874 @@
+/* Battle Pass Complete Design - Copied exactly from index.html */
+
+.battlepass-container {
+    background-color: var(--navbar-first-color);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    padding: 30px;
+    color: var(--color-default);
+    font-family: "Noto Sans Georgian", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: var(--font-weight-1);
+    letter-spacing: 1px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 1px solid var(--navbar-first-color);
+}
+
+.battlepass-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: auto auto;
+    gap: 25px;
+    grid-template-areas: 
+        "missions leaderboard"
+        "rewards rewards";
+}
+
+.battlepass-missions-section {
+    grid-area: missions;
+}
+
+.battlepass-leaderboard-section {
+    grid-area: leaderboard;
+}
+
+.battlepass-rewards-section {
+    grid-area: rewards;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--navbar-first-color);
+}
+
+.section-header h3 {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-3);
+    color: var(--span-color);
+    margin: 0;
+}
+
+.user-id {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+}
+
+.missions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.battlepass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.battlepass-title-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.battlepass-title {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-4);
+    color: var(--span-color);
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 119, 255, 0.3);
+}
+
+.battlepass-subtitle {
+    font-size: 1rem;
+    color: var(--color-dark);
+    margin: 0;
+    opacity: 0.8;
+}
+
+.battlepass-level-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.battlepass-level-display {
+    display: flex;
+    align-items: center;
+    background: var(--tablcolor);
+    border-radius: 6px;
+    padding: 20px 25px;
+    box-shadow: 0 0 5px var(--span-color);
+    border: 1px solid var(--span-color);
+    gap: 20px;
+}
+
+.level-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--span-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-default);
+    box-shadow: 0 0 10px rgba(0, 119, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.level-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.level-number {
+    font-size: 3rem;
+    font-weight: var(--font-weight-4);
+    color: var(--color-default);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    margin: 0;
+}
+
+.level-separator {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--span-color), transparent, var(--span-color));
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+.level-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.level-label {
+    font-size: 1rem;
+    color: var(--color-dark);
+    font-weight: var(--font-weight-3);
+    margin: 0;
+}
+
+.xp-progress {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-4);
+    color: var(--span-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.battlepass-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.battlepass-icon-btn {
+    background: var(--navbar-first-color);
+    border: 2px solid var(--span-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--span-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.battlepass-icon-btn:hover {
+    background: var(--span-color);
+    color: var(--color-default);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.4);
+}
+
+.season-btn {
+    width: auto;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-3);
+}
+
+.season-btn span {
+    margin-left: 5px;
+}
+
+.battlepass-stars-display {
+    background: var(--navbar-first-color);
+    border: 2px solid var(--span-color);
+    border-radius: 6px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--span-color);
+    transition: all 0.3s ease;
+    height: 90px;
+    box-sizing: border-box;
+}
+
+.battlepass-stars-display:hover {
+    background: var(--tablcolor);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+}
+
+.star-count {
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-4);
+    color: var(--color-default);
+}
+
+.mission-card {
+    background: var(--navbar-first-color);
+    border: 1px solid var(--fon);
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 5px var(--span-color);
+    border-color: var(--span-color);
+}
+
+.mission-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--tablcolor);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-default);
+    font-size: 1.5rem;
+    box-shadow: 0 0 5px var(--span-color);
+    border: 1px solid var(--span-color);
+}
+
+.mission-info {
+    flex: 1;
+}
+
+.mission-info h4 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-3);
+    color: var(--color-default);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.mission-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--fon);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--navbar-first-color);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--span-color);
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    font-weight: var(--font-weight-3);
+    min-width: 40px;
+}
+
+.mission-reward {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.exp-reward {
+    font-size: 0.9rem;
+    color: var(--span-color);
+    font-weight: var(--font-weight-3);
+}
+
+.time-left {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    opacity: 0.8;
+}
+
+/* Leaderboard Styles */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.leaderboard-item {
+    background: var(--navbar-first-color);
+    border: 1px solid var(--fon);
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    border-color: var(--span-color);
+    transform: translateX(2px);
+}
+
+.rank {
+    font-weight: var(--font-weight-4);
+    color: var(--span-color);
+    min-width: 30px;
+    font-size: 0.9rem;
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--fon);
+}
+
+.player-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-info {
+    flex: 1;
+}
+
+.player-name {
+    font-weight: var(--font-weight-3);
+    color: var(--color-default);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.player-exp {
+    font-size: 0.85rem;
+    color: var(--color-dark);
+}
+
+.rank-1 .rank {
+    color: #ffd700;
+}
+
+.rank-2 .rank {
+    color: #c0c0c0;
+}
+
+.rank-3 .rank {
+    color: #cd7f32;
+}
+
+.simulate-btn {
+    background: var(--span-color);
+    border: none;
+    color: var(--color-default);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: var(--font-weight-3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.simulate-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.4);
+    background: var(--hover);
+}
+
+/* Rewards Section Styles */
+.rewards-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 15px 0;
+    scroll-behavior: smooth;
+    margin-bottom: 20px;
+}
+
+.reward-level-item {
+    flex-shrink: 0;
+    width: 80px;
+    height: 110px;
+    background: var(--navbar-first-color);
+    border: 2px solid var(--fon);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.reward-level-item .level-number {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-4);
+    color: var(--color-default);
+    margin: 0;
+}
+
+.reward-level-item .level-label {
+    font-size: 0.7rem;
+    color: var(--color-dark);
+    margin: 2px 0;
+}
+
+.reward-xp {
+    font-size: 0.8rem;
+    color: var(--span-color);
+    font-weight: var(--font-weight-3);
+}
+
+.battlepass-progress-track {
+    margin-top: 20px;
+}
+
+.progress-line {
+    height: 6px;
+    background: var(--fon);
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--navbar-first-color);
+    position: relative;
+}
+
+.progress-line-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--span-color) 0%, #00bcd4 100%);
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+.progress-line-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.reward-level-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 5px var(--span-color);
+}
+
+.reward-level-item.earned {
+    border-color: var(--span-color);
+    background: var(--tablcolor);
+    box-shadow: 0 0 10px rgba(0, 119, 255, 0.3);
+}
+
+.reward-level-item.current {
+    border-color: var(--span-color);
+    background: var(--tablcolor);
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.reward-level {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-4);
+    color: var(--span-color);
+    margin-bottom: 5px;
+}
+
+.reward-icon {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.reward-level-item.earned .reward-icon {
+    color: var(--span-color);
+}
+
+.reward-level-item.current .reward-icon {
+    color: var(--color-default);
+}
+
+.reward-name {
+    font-size: 0.7rem;
+    color: var(--color-default);
+    text-align: center;
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard-header h3 {
+    font-size: 1.5rem;
+    color: var(--span-color);
+    margin: 0;
+}
+
+.sort-btn {
+    background: var(--navbar-first-color);
+    border: 1px solid var(--span-color);
+    color: var(--span-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: var(--font-weight-3);
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background: var(--span-color);
+    color: var(--color-default);
+}
+
+.reward-preview-tooltip {
+    position: fixed;
+    background: var(--lk);
+    border: 2px solid var(--span-color);
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 0 15px var(--span-color);
+    z-index: 1000;
+    display: none;
+    max-width: 250px;
+}
+
+.tooltip-content {
+    text-align: center;
+}
+
+.reward-title {
+    color: var(--span-color);
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-3);
+}
+
+.reward-image {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid var(--navbar-first-color);
+}
+
+.reward-description {
+    color: var(--color-default);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.claim-btn {
+    background: var(--span-color);
+    border: none;
+    color: var(--color-default);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: var(--font-weight-3);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.claim-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.4);
+    background: var(--hover);
+}
+
+.claim-btn:disabled {
+    background: var(--color-dark);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    background: var(--span-color);
+    color: var(--color-default);
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--span-color);
+    animation: slideIn 0.3s ease;
+    min-width: 250px;
+    position: relative;
+    border: 1px solid var(--navbar-first-color);
+}
+
+.notification.success {
+    background: var(--span-color);
+    box-shadow: 0 0 10px var(--span-color);
+}
+
+.notification.warning {
+    background: #ff9800;
+    box-shadow: 0 0 10px #ff9800;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .battlepass-content-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "missions"
+            "leaderboard"
+            "rewards";
+    }
+    
+    .battlepass-leaderboard-section {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .battlepass-container {
+        padding: 20px;
+    }
+    
+    .battlepass-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .battlepass-level-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .battlepass-level-display {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .level-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .level-content {
+        gap: 15px;
+    }
+
+    .level-number {
+        font-size: 2.5rem;
+    }
+
+    .level-separator {
+        height: 40px;
+    }
+
+    .level-label {
+        font-size: 0.9rem;
+    }
+
+    .xp-progress {
+        font-size: 1.1rem;
+    }
+
+    .battlepass-stars-display {
+        padding: 15px 20px;
+        height: 70px;
+    }
+
+    .battlepass-stars-display svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .star-count {
+        font-size: 1.2rem;
+    }
+    
+    .mission-card {
+        padding: 15px;
+    }
+    
+    .mission-info h4 {
+        font-size: 0.95rem;
+    }
+    
+    .rewards-track {
+        gap: 8px;
+    }
+    
+    .reward-level-item {
+        width: 70px;
+        height: 100px;
+    }
+    
+    .reward-level-item .level-number {
+        font-size: 1.1rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .leaderboard-item {
+        padding: 10px;
+    }
+    
+    .player-avatar {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .battlepass-title {
+        font-size: 2rem;
+    }
+    
+    .battlepass-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .battlepass-level-display {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .level-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .level-separator {
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(to right, var(--span-color), transparent, var(--span-color));
+        align-self: center;
+    }
+
+    .level-number {
+        font-size: 2rem;
+    }
+
+    .level-icon {
+        width: 35px;
+        height: 35px;
+        align-self: center;
+    }
+
+    .battlepass-stars-display {
+        padding: 12px 16px;
+        height: 60px;
+        gap: 8px;
+    }
+
+    .battlepass-stars-display svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .star-count {
+        font-size: 1.1rem;
+    }
+    
+    .reward-preview-tooltip {
+        max-width: 90vw;
+        left: 5vw !important;
+    }
+    
+    .mission-card {
+        padding: 12px;
+    }
+    
+    .leaderboard-item {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .player-avatar {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .rank {
+        min-width: 25px;
+        font-size: 0.8rem;
+    }
+}
