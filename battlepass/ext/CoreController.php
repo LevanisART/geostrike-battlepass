@@ -120,13 +120,13 @@ class CoreController {
             <?php echo SeasonBannerComponent::render($data['nameseason'], $data['currentLevel'], $data['explvl'], $data['daysLeft'], $this->Translate); ?>
             
             <!-- Main Content Grid -->
-            <div class="battlepass-main-grid">
+            <div class="battlepass-content-grid">
                 <!-- Left Side: Missions -->
                 <div class="battlepass-missions-section">
-                    <div class="battlepass-section-header">
+                    <div class="section-header">
                         <h3>ხელმისაწვდომი მისიები</h3>
-                        <?php if (!empty($_SESSION['steamid64'])): ?>
-                            <div class="battlepass-user-id">UserID: <?php echo $data['usid'] ?: 'N/A'; ?></div>
+                        <?php if (!empty($data['usid'])): ?>
+                            <span class="user-id">UserID: <?php echo htmlspecialchars($data['usid']); ?></span>
                         <?php endif; ?>
                     </div>
                     
@@ -139,6 +139,9 @@ class CoreController {
                 
                 <!-- Right Side: Leaderboard -->
                 <div class="battlepass-leaderboard-section">
+                    <div class="section-header">
+                        <h3>TOP 10 მოთამაშე</h3>
+                    </div>
                     <?php echo TopPlayersComponent::render($data['top_players'], $data['nicknames'], $this->Translate); ?>
                 </div>
             </div>
@@ -153,9 +156,75 @@ class CoreController {
                         $data['user'], 
                         $this->Translate
                     ); ?>
+                    
+                    <!-- Progress bar at bottom -->
+                    <div class="battlepass-progress-track">
+                        <div class="progress-line">
+                            <div class="progress-line-fill" style="width: <?php echo ($data['currentLevel'] / 15) * 100; ?>%;"></div>
+                        </div>
+                    </div>
                 <?php endif; ?>
+                
+                <!-- Battle Pass Explanation -->
+                <div class="battlepass-explanation">
+                    <div class="explanation-column">
+                        <div class="explanation-header">
+                            <div class="explanation-icon free-pass-icon">🆓</div>
+                            <div>
+                                <h4 class="explanation-title">უფასო Battle Pass</h4>
+                                <p class="explanation-subtitle">ყველა მოთამაშისთვის ხელმისაწვდომი</p>
+                            </div>
+                        </div>
+                        <ul class="explanation-features">
+                            <li>უფასო ჯილდოები თითოეულ ლიცენტუკურ დონეზე</li>
+                            <li>ძირითადი მისიები და გამოცდები</li>
+                            <li>სტანდარტული XP ბონუსები</li>
+                            <li>TOP 10 ლიდერბორდში მონაწილეობა</li>
+                            <li>ძირითადი სკინები და სახელები</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explanation-column">
+                        <div class="explanation-header">
+                            <div class="explanation-icon premium-pass-icon">👑</div>
+                            <div>
+                                <h4 class="explanation-title">Premium Battle Pass</h4>
+                                <p class="explanation-subtitle">განსაკუთრებული ჯილდოებისთვის</p>
+                            </div>
+                        </div>
+                        <ul class="explanation-features premium-features">
+                            <li>ყველა უფასო ჯილდო + Premium ჯილდოები</li>
+                            <li>განსაკუთრებული სკინები და იარაღები</li>
+                            <li>+50% XP ბონუსი ყველა მისიაზე</li>
+                            <li>ექსკლუზივური სახელები და ნიშანები</li>
+                            <li>უპრიორიტეტო სერვერზე წვდომა</li>
+                            <li>მომავალი სეზონზე ადრეული წვდომა</li>
+                        </ul>
+                        <?php 
+                        $hasPremium = !empty($data['user']) && isset($data['user'][0]['paid']) && $data['user'][0]['paid'] == 1;
+                        if (!$hasPremium): 
+                        ?>
+                        <button class="upgrade-btn" onclick="upgradeToPremium()">
+                            Premium-ზე გადართვა - 15₾
+                        </button>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
+        
+        <!-- Reward Preview Tooltip -->
+        <div class="reward-preview-tooltip" id="rewardTooltip">
+            <div class="tooltip-content">
+                <h4 class="reward-title">ჯილდოს სახელი</h4>
+                <img class="reward-image" src="https://placehold.co/150x150/00bcd4/ffffff?text=Reward" alt="Reward">
+                <p class="reward-description">ეს არის ჯილდოს აღწერა...</p>
+                <button class="claim-btn" id="claimBtn">ჯილდოს აღება</button>
+            </div>
+        </div>
+
+        <!-- Notification System -->
+        <div class="notification-container" id="notificationContainer"></div>
         <?php
         return ob_get_clean();
     }
@@ -222,6 +291,52 @@ class CoreController {
                         </div>
                     </div>
                 <?php endif; ?>
+                
+                <!-- Battle Pass Explanation -->
+                <div class="battlepass-explanation">
+                    <div class="explanation-column">
+                        <div class="explanation-header">
+                            <div class="explanation-icon free-pass-icon">🆓</div>
+                            <div>
+                                <h4 class="explanation-title">უფასო Battle Pass</h4>
+                                <p class="explanation-subtitle">ყველა მოთამაშისთვის ხელმისაწვდომი</p>
+                            </div>
+                        </div>
+                        <ul class="explanation-features">
+                            <li>უფასო ჯილდოები თითოეულ ლიცენტუკურ დონეზე</li>
+                            <li>ძირითადი მისიები და გამოცდები</li>
+                            <li>სტანდარტული XP ბონუსები</li>
+                            <li>TOP 10 ლიდერბორდში მონაწილეობა</li>
+                            <li>ძირითადი სკინები და სახელები</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explanation-column">
+                        <div class="explanation-header">
+                            <div class="explanation-icon premium-pass-icon">👑</div>
+                            <div>
+                                <h4 class="explanation-title">Premium Battle Pass</h4>
+                                <p class="explanation-subtitle">განსაკუთრებული ჯილდოებისთვის</p>
+                            </div>
+                        </div>
+                        <ul class="explanation-features premium-features">
+                            <li>ყველა უფასო ჯილდო + Premium ჯილდოები</li>
+                            <li>განსაკუთრებული სკინები და იარაღები</li>
+                            <li>+50% XP ბონუსი ყველა მისიაზე</li>
+                            <li>ექსკლუზივური სახელები და ნიშანები</li>
+                            <li>უპრიორიტეტო სერვერზე წვდომა</li>
+                            <li>მომავალი სეზონზე ადრეული წვდომა</li>
+                        </ul>
+                        <?php 
+                        $hasPremium = !empty($user) && isset($user[0]['paid']) && $user[0]['paid'] == 1;
+                        if (!$hasPremium): 
+                        ?>
+                        <button class="upgrade-btn" onclick="upgradeToPremium()">
+                            Premium-ზე გადართვა - 15₾
+                        </button>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -251,23 +366,64 @@ class CoreController {
                 rewardItems.forEach(item => {
                     item.addEventListener('click', (e) => {
                         const level = item.dataset.level;
+                        const expNeeded = item.dataset.expNeeded;
                         const isEarned = item.classList.contains('earned');
                         const isCurrent = item.classList.contains('current');
                         
+                        // Get reward information from the HTML structure
+                        const freeTier = item.querySelector('.free-tier');
+                        const premiumTier = item.querySelector('.premium-tier');
+                        const isLocked = premiumTier?.classList.contains('locked') || false;
+                        
                         // Update tooltip content
-                        tooltip.querySelector('.reward-title').textContent = `Level ${level} Reward`;
-                        tooltip.querySelector('.reward-description').textContent = `This is a reward for reaching level ${level}.`;
+                        tooltip.querySelector('.reward-title').textContent = `Level ${level} Rewards`;
+                        
+                        let description = `შეჭირა ${expNeeded} EXP ამ ლეველის მისაღწევად.\n\n`;
+                        description += 'უფასო ჯილდოები: ';
+                        
+                        const freeStars = freeTier?.querySelector('.stars .reward-value')?.textContent || '0';
+                        const freeExp = freeTier?.querySelector('.exp .reward-value')?.textContent || '0';
+                        const freeMoney = freeTier?.querySelector('.money .reward-value')?.textContent || '0';
+                        
+                        let freeRewards = [];
+                        if (freeStars !== '0') freeRewards.push(`${freeStars}★`);
+                        if (freeExp !== '0') freeRewards.push(`${freeExp} EXP`);
+                        if (freeMoney !== '0') freeRewards.push(`${freeMoney}₾`);
+                        description += freeRewards.length > 0 ? freeRewards.join(', ') : '-';
+                        
+                        description += '\n\nPremium ჯილდოები: ';
+                        const premiumStars = premiumTier?.querySelector('.stars .reward-value')?.textContent || '0';
+                        const premiumExp = premiumTier?.querySelector('.exp .reward-value')?.textContent || '0';
+                        const premiumMoney = premiumTier?.querySelector('.money .reward-value')?.textContent || '0';
+                        
+                        let premiumRewards = [];
+                        if (premiumStars !== '0') premiumRewards.push(`${premiumStars}★`);
+                        if (premiumExp !== '0') premiumRewards.push(`${premiumExp} EXP`);
+                        if (premiumMoney !== '0') premiumRewards.push(`${premiumMoney}₾`);
+                        description += premiumRewards.length > 0 ? premiumRewards.join(', ') : '-';
+                        
+                        if (isLocked) {
+                            description += '\n\n⚠️ Premium Battle Pass საჭიროა premium ჯილდოებისთვის';
+                        }
+                        
+                        tooltip.querySelector('.reward-description').style.whiteSpace = 'pre-line';
+                        tooltip.querySelector('.reward-description').textContent = description;
                         
                         // Update claim button
                         if (isEarned) {
-                            claimBtn.textContent = 'მიღებული';
+                            claimBtn.textContent = 'ყველა ჯილდო მიღებული';
                             claimBtn.disabled = true;
+                            claimBtn.style.background = 'var(--span-color)';
+                            claimBtn.style.color = 'var(--color-default)';
                         } else if (isCurrent) {
-                            claimBtn.textContent = 'ჯილდოს აღება';
+                            claimBtn.textContent = 'ჯილდოების აღება';
                             claimBtn.disabled = false;
+                            claimBtn.style.background = 'var(--span-color)';
+                            claimBtn.style.color = 'var(--color-default)';
                         } else {
                             claimBtn.textContent = 'არ არის ხელმისაწვდომი';
                             claimBtn.disabled = true;
+                            claimBtn.style.background = '#666';
                         }
                         
                         // Position and show tooltip
@@ -320,6 +476,18 @@ class CoreController {
 
             // Make showNotification globally available
             window.showNotification = showNotification;
+            
+            // Premium upgrade function
+            window.upgradeToPremium = function() {
+                if (confirm('Premium Battle Pass-ზე გადართვა ღირს 15₾. გნებავთ გაგრძელება?')) {
+                    // Here you would integrate with your payment system
+                    // For now, just show a notification
+                    showNotification('Premium Battle Pass-ისთვის გადართვა მუშავდება...', 'info');
+                    
+                    // You can redirect to payment page or open payment modal
+                    // window.location.href = '/payment/battlepass-premium';
+                }
+            };
         });
         </script>
         <?php

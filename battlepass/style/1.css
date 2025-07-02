@@ -156,7 +156,7 @@
 }
 
 .level-label {
-    font-size: 1rem;
+    font-size: 0.6rem;
     color: var(--color-dark);
     font-weight: var(--font-weight-3);
     margin: 0;
@@ -350,6 +350,7 @@
 .leaderboard-item:hover {
     border-color: var(--span-color);
     transform: translateX(2px);
+    margin-right: 2px;
 }
 
 .rank {
@@ -430,39 +431,22 @@
 
 .reward-level-item {
     flex-shrink: 0;
-    width: 80px;
-    height: 110px;
+    width: 130px;
+    min-height: 140px;
     background: var(--navbar-first-color);
-    border: 2px solid var(--fon);
+    border: 2px solid var(--span-color);
     border-radius: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    gap: 6px;
 }
 
-.reward-level-item .level-number {
-    font-size: 1.2rem;
-    font-weight: var(--font-weight-4);
-    color: var(--color-default);
-    margin: 0;
-}
 
-.reward-level-item .level-label {
-    font-size: 0.7rem;
-    color: var(--color-dark);
-    margin: 2px 0;
-}
-
-.reward-xp {
-    font-size: 0.8rem;
-    color: var(--span-color);
-    font-weight: var(--font-weight-3);
-}
 
 .battlepass-progress-track {
     margin-top: 20px;
@@ -501,26 +485,164 @@
 }
 
 .reward-level-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 5px var(--span-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 8px var(--span-color);
+    border-color: #00bcd4;
 }
 
 .reward-level-item.earned {
-    border-color: var(--span-color);
     background: var(--tablcolor);
     box-shadow: 0 0 10px rgba(0, 119, 255, 0.3);
 }
 
-.reward-level-item.current {
+.reward-level-item.earned .free-tier {
+    background: rgba(0, 119, 255, 0.2);
     border-color: var(--span-color);
-    background: var(--tablcolor);
-    box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
-    animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+.reward-level-item.earned .premium-tier:not(.locked) {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+}
+
+.reward-level-item.current {
+    background: var(--tablcolor);
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+    animation: currentPulse 2s infinite;
+}
+
+@keyframes currentPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0, 119, 255, 0.7);
+    }
+}
+
+/* New Reward Level Item Styling */
+.level-number {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-4);
+    color: var(--color-default);
+    margin: 0;
+    text-align: center;
+}
+
+.level-label-georgian {
+    font-size: 0.6rem;
+    color: var(--span-color);
+    text-align: center;
+    font-weight: var(--font-weight-3);
+    margin: 2px 0;
+    opacity: 0.9;
+}
+
+.level-exp-needed {
+    font-size: 0.7rem;
+    color: var(--color-default);
+    text-align: center;
+    opacity: 0.8;
+}
+
+.reward-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.reward-tier {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    min-height: 28px;
+}
+
+.free-tier {
+    border-color: var(--span-color);
+    background: rgba(0, 119, 255, 0.1);
+}
+
+.premium-tier {
+    border-color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.premium-tier.locked {
+    border-color: #8a6914;
+    background: rgba(138, 105, 20, 0.1);
+}
+
+.tier-label {
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin: 0 3px 0 4px;
+}
+
+.tier-rewards {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-height: 20px;
+    justify-content: center;
+}
+
+.reward-item {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+/* When there are multiple rewards, make them more compact */
+.tier-rewards .reward-item:nth-child(2) ~ .reward-item {
+    margin-top: -1px;
+}
+
+.reward-item.stars {
+    color: #ffd700;
+}
+
+.reward-item.exp {
+    color: var(--span-color);
+}
+
+.reward-item.money {
+    color: #4CAF50;
+    font-weight: var(--font-weight-3);
+}
+
+.reward-item.money .reward-label {
+    font-size: 0.5rem;
+    color: #4CAF50;
+}
+
+.reward-item.empty {
+    color: var(--color-dark);
+    opacity: 0.5;
+}
+
+.reward-value {
+    font-weight: var(--font-weight-3);
+}
+
+.reward-icon {
+    font-size: 0.6rem;
+}
+
+.reward-label {
+    font-size: 0.6rem;
+    opacity: 0.8;
 }
 
 .reward-level {
@@ -531,17 +653,8 @@
 }
 
 .reward-icon {
-    font-size: 1.5rem;
-    color: var(--color-dark);
-    margin-bottom: 5px;
-}
-
-.reward-level-item.earned .reward-icon {
+    font-size: 1rem;
     color: var(--span-color);
-}
-
-.reward-level-item.current .reward-icon {
-    color: var(--color-default);
 }
 
 .reward-name {
@@ -683,6 +796,116 @@
     }
 }
 
+/* Battlepass Explanation Section */
+.battlepass-explanation {
+    margin-top: 30px;
+    padding: 25px;
+    background: var(--navbar-first-color);
+    border: 1px solid var(--fon);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.explanation-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.explanation-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.explanation-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-3);
+}
+
+.free-pass-icon {
+    background: var(--span-color);
+    color: var(--color-default);
+}
+
+.premium-pass-icon {
+    background: #ffd700;
+    color: #000;
+}
+
+.explanation-title {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-3);
+    color: var(--color-default);
+    margin: 0;
+}
+
+.explanation-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    margin: 0;
+    opacity: 0.8;
+}
+
+.explanation-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.explanation-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--color-default);
+    line-height: 1.4;
+}
+
+.explanation-features li::before {
+    content: '✓';
+    color: var(--span-color);
+    font-weight: var(--font-weight-4);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.premium-features li::before {
+    color: #ffd700;
+}
+
+.upgrade-btn {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: none;
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: var(--font-weight-3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
+}
+
+.upgrade-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .battlepass-content-grid {
@@ -707,6 +930,13 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
+    }
+    
+    .battlepass-explanation {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        margin-top: 20px;
     }
     
     .battlepass-level-section {
@@ -767,16 +997,25 @@
     }
     
     .rewards-track {
-        gap: 8px;
+        gap: 6px;
     }
     
     .reward-level-item {
-        width: 70px;
-        height: 100px;
+        width: 100px;
+        min-height: 120px;
     }
     
-    .reward-level-item .level-number {
-        font-size: 1.1rem;
+    .level-number {
+        font-size: 1rem;
+    }
+    
+    .level-label-georgian {
+        font-size: 0.55rem;
+    }
+    
+    .reward-item {
+        font-size: 0.6rem;
+        gap: 1px;
     }
     
     .section-header {
@@ -823,7 +1062,7 @@
         align-self: center;
     }
 
-    .level-number {
+    .battlepass-level-display .level-number {
         font-size: 2rem;
     }
 
@@ -846,6 +1085,43 @@
 
     .star-count {
         font-size: 1.1rem;
+    }
+    
+    .reward-level-item {
+        width: 90px;
+        min-height: 110px;
+    }
+    
+    .reward-level-item .level-number {
+        font-size: 0.9rem;
+    }
+    
+    .level-label-georgian {
+        font-size: 0.5rem;
+    }
+    
+    .level-exp-needed {
+        font-size: 0.6rem;
+    }
+    
+    .reward-tier {
+        padding: 2px;
+        gap: 2px;
+        min-height: 24px;
+    }
+    
+    .tier-label {
+        font-size: 0.6rem;
+    }
+    
+    .reward-item {
+        font-size: 0.6rem;
+    }
+    
+    .battlepass-explanation {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
     }
     
     .reward-preview-tooltip {
