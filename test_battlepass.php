@@ -125,25 +125,28 @@ $mockData = [
     ],
     'missionData' => [
         [
-            'description' => '10 მოკვლა (Dual Berettas)',
-            'progress' => 0,
-            'target' => 10,
-            'exp' => 30,
-            'time_left' => '23:39:56'
-        ],
-        [
-            'description' => 'Plant 9 Times on B',
-            'progress' => 4,
-            'target' => 9,
-            'exp' => 55,
-            'time_left' => '23:59:56'
-        ],
-        [
-            'description' => '5 Wallbang Kills (SG 553)',
-            'progress' => 0,
+            'description' => 'Get 5 Headshots',
+            'progress' => 5,
             'target' => 5,
-            'exp' => 45,
-            'time_left' => '23:59:56'
+            'exp' => 150,
+            'time_left' => '23:45:12',
+            'difficulty' => 'daily'
+        ],
+        [
+            'description' => 'Plant the bomb 50 times',
+            'progress' => 30,
+            'target' => 50,
+            'exp' => 500,
+            'time_left' => '4d 12:30:45',
+            'difficulty' => 'weekly'
+        ],
+        [
+            'description' => 'Win 3 rounds',
+            'progress' => 1,
+            'target' => 3,
+            'exp' => 50,
+            'time_left' => '45:23',
+            'difficulty' => 'hourly'
         ]
     ],
     'rewardData' => [

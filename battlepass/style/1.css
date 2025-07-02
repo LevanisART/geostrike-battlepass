@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: 1fr 350px;
     grid-template-rows: auto auto;
-    gap: 25px;
+    gap: 20px;
     grid-template-areas: 
         "missions leaderboard"
         "rewards rewards";
@@ -47,7 +47,7 @@
 }
 
 .section-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: var(--font-weight-3);
     color: var(--span-color);
     margin: 0;
@@ -69,9 +69,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .battlepass-title-section {
@@ -80,15 +80,15 @@
 }
 
 .battlepass-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: var(--font-weight-4);
     color: var(--span-color);
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     text-shadow: 0 2px 4px rgba(0, 119, 255, 0.3);
 }
 
 .battlepass-subtitle {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--color-dark);
     margin: 0;
     opacity: 0.8;
@@ -106,15 +106,15 @@
     align-items: center;
     background: var(--tablcolor);
     border-radius: 6px;
-    padding: 20px 25px;
+    padding: 15px 20px;
     box-shadow: 0 0 5px var(--span-color);
     border: 1px solid var(--span-color);
-    gap: 20px;
+    gap: 15px;
 }
 
 .level-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: var(--span-color);
     border-radius: 50%;
     display: flex;
@@ -128,12 +128,12 @@
 .level-content {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     flex: 1;
 }
 
 .level-number {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: var(--font-weight-4);
     color: var(--color-default);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -143,7 +143,7 @@
 
 .level-separator {
     width: 2px;
-    height: 50px;
+    height: 40px;
     background: linear-gradient(to bottom, var(--span-color), transparent, var(--span-color));
     border-radius: 1px;
     flex-shrink: 0;
@@ -156,14 +156,14 @@
 }
 
 .level-label {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: var(--color-dark);
     font-weight: var(--font-weight-3);
     margin: 0;
 }
 
 .xp-progress {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: var(--font-weight-4);
     color: var(--span-color);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -213,13 +213,13 @@
     background: var(--navbar-first-color);
     border: 2px solid var(--span-color);
     border-radius: 6px;
-    padding: 20px 25px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--span-color);
     transition: all 0.3s ease;
-    height: 90px;
+    height: 80px;
     box-sizing: border-box;
 }
 
@@ -230,7 +230,7 @@
 }
 
 .star-count {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: var(--font-weight-4);
     color: var(--color-default);
 }
@@ -239,10 +239,10 @@
     background: var(--navbar-first-color);
     border: 1px solid var(--fon);
     border-radius: 6px;
-    padding: 18px;
+    padding: 12px;
     display: flex;
     align-items: flex-start;
-    gap: 15px;
+    gap: 12px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -254,15 +254,15 @@
 }
 
 .mission-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: var(--tablcolor);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-default);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     box-shadow: 0 0 5px var(--span-color);
     border: 1px solid var(--span-color);
 }
@@ -272,25 +272,25 @@
 }
 
 .mission-info h4 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: var(--font-weight-3);
     color: var(--color-default);
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     line-height: 1.3;
 }
 
 .mission-progress {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 .progress-bar {
     flex: 1;
-    height: 8px;
+    height: 6px;
     background: var(--fon);
-    border-radius: 4px;
+    border-radius: 3px;
     overflow: hidden;
     border: 1px solid var(--navbar-first-color);
 }
@@ -302,10 +302,10 @@
 }
 
 .progress-text {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--color-dark);
     font-weight: var(--font-weight-3);
-    min-width: 40px;
+    min-width: 35px;
 }
 
 .mission-reward {
@@ -316,15 +316,82 @@
 }
 
 .exp-reward {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--span-color);
     font-weight: var(--font-weight-3);
 }
 
 .time-left {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--color-dark);
     opacity: 0.8;
+}
+
+/* Mission Hardness/Difficulty Badges */
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.mission-title {
+    flex: 1;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-3);
+    color: var(--color-default);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.mission-difficulty {
+    font-size: 0.65rem;
+    font-weight: var(--font-weight-3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    line-height: 1.2;
+}
+
+.difficulty-hourly {
+    background: #4CAF50;
+    color: white;
+}
+
+.difficulty-daily {
+    background: #FF9800;
+    color: white;
+}
+
+.difficulty-weekly {
+    background: #FF5722;
+    color: white;
+}
+
+.difficulty-monthly {
+    background: #F44336;
+    color: white;
+}
+
+.difficulty-custom {
+    background: #9C27B0;
+    color: white;
+}
+
+.mission-completed {
+    background: #4CAF50;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: var(--font-weight-3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    line-height: 1.2;
 }
 
 /* Leaderboard Styles */
@@ -340,10 +407,10 @@
     background: var(--navbar-first-color);
     border: 1px solid var(--fon);
     border-radius: 6px;
-    padding: 12px;
+    padding: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     transition: all 0.3s ease;
 }
 
@@ -356,13 +423,13 @@
 .rank {
     font-weight: var(--font-weight-4);
     color: var(--span-color);
-    min-width: 30px;
-    font-size: 0.9rem;
+    min-width: 25px;
+    font-size: 0.8rem;
 }
 
 .player-avatar {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--fon);
@@ -381,12 +448,12 @@
 .player-name {
     font-weight: var(--font-weight-3);
     color: var(--color-default);
-    font-size: 0.95rem;
-    margin-bottom: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 1px;
 }
 
 .player-exp {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--color-dark);
 }
 
@@ -434,7 +501,7 @@
     width: 130px;
     min-height: 140px;
     background: var(--navbar-first-color);
-    border: 2px solid var(--span-color);
+    border: 2px solid #333;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -445,8 +512,6 @@
     position: relative;
     gap: 6px;
 }
-
-
 
 .battlepass-progress-track {
     margin-top: 20px;
@@ -485,40 +550,98 @@
 }
 
 .reward-level-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 8px var(--span-color);
-    border-color: #00bcd4;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(128, 128, 128, 0.3);
+    border-color: #555;
+}
+
+.reward-level-item:hover .free-tier {
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.25) 0%, rgba(128, 128, 128, 0.15) 100%);
+    border-color: #777;
+}
+
+.reward-level-item:hover .premium-tier:not(.locked) {
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.25) 0%, rgba(128, 128, 128, 0.15) 100%);
+    border-color: #777;
 }
 
 .reward-level-item.earned {
     background: var(--tablcolor);
     box-shadow: 0 0 10px rgba(0, 119, 255, 0.3);
-}
-
-.reward-level-item.earned .free-tier {
-    background: rgba(0, 119, 255, 0.2);
     border-color: var(--span-color);
 }
 
+.reward-level-item.earned:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+    border-color: var(--span-color);
+}
+
+.reward-level-item.earned:hover .free-tier {
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.25) 0%, rgba(0, 119, 255, 0.15) 100%);
+    border-color: #0099ff;
+}
+
+.reward-level-item.earned:hover .premium-tier:not(.locked) {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.15) 100%);
+    border-color: #ffed4a;
+}
+
+.reward-level-item.earned .free-tier {
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.3) 0%, rgba(0, 119, 255, 0.2) 100%);
+    border-color: #0077ff;
+    box-shadow: inset 0 1px 3px rgba(0, 119, 255, 0.2);
+}
+
 .reward-level-item.earned .premium-tier:not(.locked) {
-    background: rgba(255, 215, 0, 0.2);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0.2) 100%);
     border-color: #ffd700;
+    box-shadow: inset 0 1px 3px rgba(255, 215, 0, 0.2);
 }
 
 .reward-level-item.current {
     background: var(--tablcolor);
     box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+    border-color: var(--span-color);
     animation: currentPulse 2s infinite;
+}
+
+.reward-level-item.current:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+    border-color: var(--span-color);
+}
+
+.reward-level-item.current:hover .free-tier {
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.4) 0%, rgba(0, 119, 255, 0.3) 100%);
+    border-color: #0099ff;
+}
+
+.reward-level-item.current:hover .premium-tier:not(.locked) {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 215, 0, 0.3) 100%);
+    border-color: #ffed4a;
+}
+
+.reward-level-item.current .free-tier {
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.35) 0%, rgba(0, 119, 255, 0.25) 100%);
+    border-color: #0077ff;
+    box-shadow: inset 0 1px 3px rgba(0, 119, 255, 0.3);
+}
+
+.reward-level-item.current .premium-tier:not(.locked) {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.35) 0%, rgba(255, 215, 0, 0.25) 100%);
+    border-color: #ffd700;
+    box-shadow: inset 0 1px 3px rgba(255, 215, 0, 0.3);
 }
 
 @keyframes currentPulse {
     0%, 100% { 
         transform: scale(1);
-        box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+        box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
     }
     50% { 
         transform: scale(1.02);
-        box-shadow: 0 0 20px rgba(0, 119, 255, 0.7);
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
     }
 }
 
@@ -531,14 +654,7 @@
     text-align: center;
 }
 
-.level-label-georgian {
-    font-size: 0.6rem;
-    color: var(--span-color);
-    text-align: center;
-    font-weight: var(--font-weight-3);
-    margin: 2px 0;
-    opacity: 0.9;
-}
+
 
 .level-exp-needed {
     font-size: 0.7rem;
@@ -558,32 +674,37 @@
     display: flex;
     align-items: center;
     gap: 3px;
-    padding: 3px;
+    padding: 4px 6px;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     border: 1px solid transparent;
     min-height: 28px;
+    transition: all 0.3s ease;
 }
 
 .free-tier {
-    border-color: var(--span-color);
-    background: rgba(0, 119, 255, 0.1);
+    border-color: #555;
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.15) 0%, rgba(128, 128, 128, 0.08) 100%);
+    box-shadow: inset 0 1px 2px rgba(128, 128, 128, 0.1);
 }
 
 .premium-tier {
-    border-color: #ffd700;
-    background: rgba(255, 215, 0, 0.1);
+    border-color: #666;
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.15) 0%, rgba(128, 128, 128, 0.08) 100%);
+    box-shadow: inset 0 1px 2px rgba(128, 128, 128, 0.1);
 }
 
 .premium-tier.locked {
     border-color: #8a6914;
-    background: rgba(138, 105, 20, 0.1);
+    background: linear-gradient(135deg, rgba(138, 105, 20, 0.15) 0%, rgba(138, 105, 20, 0.08) 100%);
+    box-shadow: inset 0 1px 2px rgba(138, 105, 20, 0.1);
 }
 
 .tier-label {
     font-size: 0.8rem;
     flex-shrink: 0;
-    margin: 0 3px 0 4px;
+    margin: 0 2px 0 2px;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
 }
 
 .tier-rewards {
@@ -598,10 +719,12 @@
 .reward-item {
     display: flex;
     align-items: center;
-    gap: 1px;
+    gap: 2px;
     font-size: 0.75rem;
     line-height: 1.1;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+    font-weight: var(--font-weight-3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* When there are multiple rewards, make them more compact */
@@ -610,39 +733,53 @@
 }
 
 .reward-item.stars {
-    color: #ffd700;
+    color: #00bcd4;
+}
+
+.reward-item.stars .reward-icon {
+    color: #00bcd4;
+    filter: drop-shadow(0 0 2px rgba(0, 188, 212, 0.5));
 }
 
 .reward-item.exp {
-    color: var(--span-color);
+    color: #00bcd4;
+}
+
+.reward-item.exp .reward-label {
+    color: #00bcd4;
 }
 
 .reward-item.money {
     color: #4CAF50;
-    font-weight: var(--font-weight-3);
+    font-weight: var(--font-weight-4);
 }
 
 .reward-item.money .reward-label {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     color: #4CAF50;
+    font-weight: var(--font-weight-3);
 }
 
 .reward-item.empty {
     color: var(--color-dark);
-    opacity: 0.5;
+    opacity: 0.4;
+    font-style: italic;
 }
 
 .reward-value {
-    font-weight: var(--font-weight-3);
+    font-weight: var(--font-weight-4);
+    color: inherit;
 }
 
 .reward-icon {
     font-size: 0.6rem;
+    color: inherit;
 }
 
 .reward-label {
     font-size: 0.6rem;
-    opacity: 0.8;
+    opacity: 0.9;
+    color: inherit;
 }
 
 .reward-level {
@@ -1009,7 +1146,7 @@
         font-size: 1rem;
     }
     
-    .level-label-georgian {
+    .level-label {
         font-size: 0.55rem;
     }
     
@@ -1096,7 +1233,7 @@
         font-size: 0.9rem;
     }
     
-    .level-label-georgian {
+    .level-label {
         font-size: 0.5rem;
     }
     
